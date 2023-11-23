@@ -19,7 +19,7 @@ fs.readFile('files\\encryption_policies.txt', 'utf-8', (err, data) => {
     if (
       (stringToEvaluate.match(new RegExp(letterToEvaluate, 'g')) || [])
         .length != numberOfOcurrences ||
-      totalLength == len
+      totalLength != len
     ) {
       listInvalidPwd.push(stringToEvaluate)
     }
