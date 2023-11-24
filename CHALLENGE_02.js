@@ -9,7 +9,7 @@ Rules:
 const fs = require('fs')
 
 let currentValue = 0
-let printMsg = []
+let printMsg = ''
 
 fs.readFile('files\\message_02.txt', 'utf-8', (err, data) => {
   if (err) throw err
@@ -26,10 +26,10 @@ fs.readFile('files\\message_02.txt', 'utf-8', (err, data) => {
         currentValue *= currentValue
         break
       case '&':
-        printMsg.push(currentValue)
+        printMsg += currentValue
         break
     }
   })
 
-  console.log(printMsg.join(''))
+  console.log(printMsg)
 })
