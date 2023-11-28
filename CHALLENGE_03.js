@@ -20,7 +20,7 @@ fs.readFile('files\\encryption_policies.txt', 'utf-8', (err, data) => {
     }
   })
 
-  if (listInvalidPwd.length > 41) {
+  if (listInvalidPwd.length >= 41) {
     console.log(listInvalidPwd[41])
     console.log(listInvalidPwd[12])
   }
