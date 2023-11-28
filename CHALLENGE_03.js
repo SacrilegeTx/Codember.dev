@@ -13,16 +13,15 @@ fs.readFile('files\\encryption_policies.txt', 'utf-8', (err, data) => {
       .split(' ')
     const [min, max] = range.split('-')
 
-    if (
-      (password.match(new RegExp(letter, 'g')) || []).length < min ||
-      max > password.trim().length
-    ) {
-      listInvalidPwd.push(password.trim())
+    let ocurrencies = (password.match(new RegExp(letter, 'g')) || []).length
+
+    if (ocurrencies < min || max < ocurrencies) {
+      listInvalidPwd.push(password)
     }
   })
 
   if (listInvalidPwd.length > 41) {
-    console.log(listInvalidPwd[42])
-    console.log(listInvalidPwd[13])
+    console.log(listInvalidPwd[41])
+    console.log(listInvalidPwd[12])
   }
 })
