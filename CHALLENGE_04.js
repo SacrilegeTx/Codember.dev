@@ -10,7 +10,7 @@ let realFiles = []
 fs.readFile('files\\files_quarantine.txt', 'utf-8', (err, data) => {
   if (err) throw err
 
-  let allFiles = data.split('\r\n') //.slice(0, 9)
+  let allFiles = data.split('\r\n')
   
   allFiles.forEach(element => {
     const [filename, checksum] = element.split('-')
