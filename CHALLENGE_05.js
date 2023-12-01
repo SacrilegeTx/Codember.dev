@@ -14,16 +14,10 @@ const inArray = (arr, element) => arr.includes(element)
 let invalidUsers = []
 let message = ''
 
-/* console.log(isAlphanumeric('O8TsZ7'))
-console.log(isAlphanumeric('jauTbB'))
-console.log(isValidEmail('jautbb@gmail.com'))
-console.log(isNumeric('45'))
-console.log(isString('New York')) */
-
 fs.readFile('files\\database_attacked.txt', 'utf-8', (err, data) => {
   if (err) throw err
 
-  const database = data.split('\r\n')//.slice(0, 20)
+  const database = data.split('\r\n')
 
   database.forEach(row => {
     const [id, username, email, age, location] = row.split(',')
