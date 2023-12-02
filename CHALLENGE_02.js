@@ -6,30 +6,30 @@ Rules:
 "&" Imprime el valor numérico actual.
 */
 
-const fs = require('fs')
+import fs from 'node:fs/promises'
 
 let currentValue = 0
-let printMsg = ''
+let msg = ''
 
-fs.readFile('files\\message_02.txt', 'utf-8', (err, data) => {
-  if (err) throw err
+const file = await fs
+  .readFile('files\\message_02.txt', 'utf-8')
+  .catch(err => console.error('Error leyendo el archivo:', err.message))
 
-  Array.from(data).forEach(value => {
-    switch (value) {
-      case '#':
-        ++currentValue
-        break
-      case '@':
-        --currentValue
-        break
-      case '*':
-        currentValue *= currentValue
-        break
-      case '&':
-        printMsg += currentValue
-        break
-    }
-  })
-
-  console.log(printMsg)
+  Array.from(file).forEach(value => {
+  switch (value) {
+    case '#':
+      ++currentValue
+      break
+    case '@':
+      --currentValue
+      break
+    case '*':
+      currentValue *= currentValue
+      break
+    case '&':
+      msg += currentValue
+      break
+  }
 })
+
+console.log({msg})
